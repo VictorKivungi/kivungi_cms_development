@@ -874,64 +874,6 @@ export interface ApiNewNew extends Schema.CollectionType {
   };
 }
 
-export interface ApiPartnerPartner extends Schema.CollectionType {
-  collectionName: 'partners';
-  info: {
-    singularName: 'partner';
-    pluralName: 'partners';
-    displayName: 'Partner';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    partner_name: Attribute.String;
-    partner_logo: Attribute.Media;
-    partner_site: Attribute.String;
-    siteUrl: Attribute.UID<'api::partner.partner', 'partner_site'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::partner.partner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::partner.partner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTeamTeam extends Schema.CollectionType {
-  collectionName: 'teams';
-  info: {
-    singularName: 'team';
-    pluralName: 'teams';
-    displayName: 'Team';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    Role: Attribute.String;
-    Image: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTenderTender extends Schema.CollectionType {
   collectionName: 'tenders';
   info: {
@@ -966,38 +908,6 @@ export interface ApiTenderTender extends Schema.CollectionType {
   };
 }
 
-export interface ApiTestimonialTestimonial extends Schema.CollectionType {
-  collectionName: 'testimonials';
-  info: {
-    singularName: 'testimonial';
-    pluralName: 'testimonials';
-    displayName: 'Testimonial';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    User_name: Attribute.String;
-    Feedback: Attribute.Text;
-    date: Attribute.Date;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::testimonial.testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::testimonial.testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1019,10 +929,7 @@ declare module '@strapi/types' {
       'api::blog.blog': ApiBlogBlog;
       'api::event.event': ApiEventEvent;
       'api::new.new': ApiNewNew;
-      'api::partner.partner': ApiPartnerPartner;
-      'api::team.team': ApiTeamTeam;
       'api::tender.tender': ApiTenderTender;
-      'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
 }
